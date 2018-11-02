@@ -7,7 +7,6 @@
 
 - name: Copy files to target machine 
   become: true
-  become_user: ismokonyane
   synchronize:
    mode: pull
    group: yes
