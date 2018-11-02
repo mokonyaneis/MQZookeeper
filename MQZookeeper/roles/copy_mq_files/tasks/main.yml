@@ -5,9 +5,23 @@
    dir: 'vars'
    files_matching: 'target_server_vars.yml'
 
-- name: Copy files to target machine
+- name: Copy files to target machine 
+  become: true
+  become_user: ismokonyane
+  synchronize:
+   mode: pull
+   group: yes
+   owner: yes
+   perms: yes
+   recursive: yes
+   src: /Softwares/Installers/mq_iib/tester.txt
+   dest: /tools/IBM/
+  delegate_to: "{{ targethost }}"
+
+
+#- name: Copy files to target machine
   #become_user: itumeleng
-  #fetch: src=/Softwares/Installers/mq_iib/tester.txt dest=./files/
-  copy: src=/Softwares/Installers/mq_iib/tester.txt dest=/tools/IBM/ remote_src=yes
+  #fetch: src=/Softwares/Installers/mq_iib/tester.txt dest=./files/#
+# copy: src=/Softwares/Installers/mq_iib/tester.txt dest=/tools/IBM/ remote_src=yes
   #copy: src=/Softwares/Installers/mq_iib/* dst="{{ targethost }}":/tools/IBM/
 
