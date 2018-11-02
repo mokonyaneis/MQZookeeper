@@ -6,6 +6,6 @@
    files_matching: 'target_server_vars.yml'
 
 - name: Copy files to target machine
-  fetch: src=/Softwares/Installers/mq_iib/ dest=/tools/IBM/
+  copy: src=/Softwares/Installers/mq_iib/ dest=/tools/IBM/
   delegate_to: "{{ targethost }}"
 
