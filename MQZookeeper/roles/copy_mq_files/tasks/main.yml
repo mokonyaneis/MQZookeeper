@@ -7,6 +7,6 @@
 
 - name: Copy files to target machine
   #become_user: itumeleng
-  copy: src=/Softwares/Installers/mq_iib/tester.txt dst="{{ target_id }}"@"{{ targethost }}":/tools/IBM/
+  copy: src=/Softwares/Installers/mq_iib/tester.txt dest="{{ target_id }}"@"{{ targethost }}":/tools/IBM/
   #copy: src=/Softwares/Installers/mq_iib/* dst="{{ targethost }}":/tools/IBM/
 
