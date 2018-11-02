@@ -6,7 +6,7 @@
 
 - name: Copy files to target machine 
   become: true
-  copy: src: /Softwares/Installers/mq_iib/ dest: /tools/IBM/
+  copy: src=/Softwares/Installers/mq_iib/ dest=/tools/IBM/
   delegate_to: "{{ targethost }}"
   register: view
   
