@@ -1,0 +1,5 @@
+---
+
+- hosts: remotehost
+  roles:
+   - role: extract_files

@@ -1,0 +1,55 @@
+---
+
+- name: Create MQ Local Queue object
+  become: true
+  become_user: '{{ mq_usr }}'
+  shell: |
+     echo "DEF QL({{ q_name }}) USAGE({{ q_usage }}) GET({{ isg_enabled }}) PUT({{ isp_enabled }}) DEFPSIST({{ is_pesist }}) MAXDEPTH({{ max_depth }}) " | runmqsc '{{ qmgr_name }}'
+  register: shell_out
+  tags:
+   - crt_ql
+- debug:
+      var: " {{ shell_out }}"
+
+- name: Create MQ XMIT Queue object
+  become: true
+  become_user: '{{ mq_usr }}'
+  shell: |
+     echo "DEF QL({{ xmit_q }}) USAGE(XMITQ) GET({{ isg_enabled }}) PUT({{ isp_enabled }}) DEFPSIST({{ is_pesist }}) MAXDEPTH({{ max_depth }}) " | runmqsc '{{ qmgr_name }}'
+  register: shell_out
+  tags:
+   - crt_xmitq
+- debug:
+      var: " {{ shell_out }}"
+
+//
+
+---
+
+# - name: "Creating multiple by checking folders"
+#   hosts: targethost
+#   tasks:
+#   - block:
+#     - name: "Checking folders"
+#       stat:
+#        path: "{{item}}"
+#       register: folder_stats
+#       with_items:
+#       - ["/tools/IBM"]
+#     - name: "Creating multiple folders without disturbing previous permissions"
+#       file:
+#        path: "{{item.item}}"
+#        state: directory
+#        mode: 0755
+#        group: itumeleng
+#        owner: itumeleng
+#       when: item.stat.exists == false
+#       with_items:
+#       - "{{folder_stats.results}}"
+
+
+# - hosts: target_host
+#   tasks:
+#    - name: Copy files to target machine 
+#       synchronize: src=/Softwares/Installers/iib-10.0.0.0.tar.gz dest=/tools/IBM/
+#       delegate_to: source

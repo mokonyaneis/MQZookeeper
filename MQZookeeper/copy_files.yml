@@ -1,0 +1,6 @@
+---
+
+- hosts: sourcehost
+  roles:
+   - role: copy_mq_files
+

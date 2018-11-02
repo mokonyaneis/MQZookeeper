@@ -1,0 +1,19 @@
+---
+
+- name: Include Variable file
+  include_vars:
+   dir: 'vars'
+   files_matching: 'target_server_vars.yml'
+   
+- name: Extract copied files and remove archives to preserve space
+  become: yes
+  become_user: root
+  shell: |
+   cd '{{ target_dir }}'
+   tar -xvf 10.0*.tar.gz; tar -xvf mq*.tar.gz
+   rm -rf 10.0*.tar.gz; rm -rf mq*.tar.gz
+
+
+
+
+#su - db2inst1 -c "db2 CONNECT TO FTEDB USER db2inst1 USING web1sphere"
