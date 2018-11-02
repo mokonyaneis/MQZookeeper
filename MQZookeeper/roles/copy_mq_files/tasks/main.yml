@@ -6,8 +6,6 @@
    files_matching: 'target_server_vars.yml'
 
 - name: Copy files to target machine 
-  become: true
-  become_user: ismokonyane
   synchronize:
    mode: pull
    group: yes
