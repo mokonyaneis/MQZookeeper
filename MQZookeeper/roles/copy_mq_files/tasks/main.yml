@@ -7,6 +7,6 @@
 
 - name: Copy files to target machine
   #become_user: itumeleng
-  shell: scp /Softwares/Installers/mq_iib/tester.txt 'itumeleng@"{{ targethost }}".metmom.mmih.biz:/tools/IBM/'
+  shell: scp /Softwares/Installers/mq_iib/tester.txt 'itumeleng@"{{ targethost }}":/tools/IBM/'
   #copy: src=/Softwares/Installers/mq_iib/* dst="{{ targethost }}":/tools/IBM/
 
