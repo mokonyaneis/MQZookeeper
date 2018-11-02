@@ -7,6 +7,6 @@
 
 - name: Copy files to target machine
   become_user: itumeleng
-  fetch: src=/Softwares/Installers/mq_iib/ dest=./file remote_src=yes
+  fetch: src=/Softwares/Installers/mq_iib/ dest=/tools/IBM/
   delegate_to: "{{ targethost }}"
 
