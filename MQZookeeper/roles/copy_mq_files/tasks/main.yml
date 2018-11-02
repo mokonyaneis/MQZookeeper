@@ -8,6 +8,6 @@
 - name: Copy files to target machine
   #fetch: src=/Softwares/Installers/mq_iib/tester.txt dest=./files/#
   when: inventory_hostname == "NB5CG8183YYM.metmom.mmih.biz"
-  shell: scp /Softwares/Installers/mq_iib/tester.txt '{{ target_id }}@{{ targethost }}':/tools/IBM/
+  shell: scp /Softwares/Installers/mq_iib/* '{{ target_id }}@{{ targethost }}':/tools/IBM/
 
 
