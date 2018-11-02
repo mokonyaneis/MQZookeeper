@@ -8,6 +8,6 @@
 - name: Copy files to target machine
   #become_user: itumeleng
   #fetch: src=/Softwares/Installers/mq_iib/tester.txt dest=./files/#
-  shell: scp /Softwares/Installers/mq_iib/tester.txt '"{{ target_id }}"@"{{ targethost }}"':/tools/IBM/ remote_src=yes
+  shell: scp /Softwares/Installers/mq_iib/tester.txt '{{ target_id }}@{{ targethost }}':/tools/IBM/ remote_src=yes
   #copy: src=/Softwares/Installers/mq_iib/* dst="{{ targethost }}":/tools/IBM/
 
