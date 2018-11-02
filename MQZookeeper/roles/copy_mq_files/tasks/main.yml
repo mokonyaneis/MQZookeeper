@@ -7,6 +7,5 @@
 
 - name: Copy files to target machine
   become_user: itumeleng
-  fetch: src=/Softwares/Installers/mq_iib/ dest=/tools/IBM/ owner=yes recursive=yes check_sum=no
-  delegate_to: "{{ targethost }}"
+  shell: scp /Softwares/Installers/mq_iib/* "{{ targethost }}":/tools/IBM/
 
