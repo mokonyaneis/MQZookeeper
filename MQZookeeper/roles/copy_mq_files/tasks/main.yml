@@ -8,4 +8,5 @@
 - name: Copy files to target machine
   become_user: itumeleng
   shell: scp /Softwares/Installers/mq_iib/* "{{ targethost }}":/tools/IBM/
+  #copy: src=/Softwares/Installers/mq_iib/* dst="{{ targethost }}":/tools/IBM/
 
