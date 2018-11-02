@@ -1,16 +1,11 @@
 ---
 - name: Include Variable file
+  become: true
   include_vars:
    dir: 'vars'
    files_matching: 'target_server_vars.yml'
 
-- name: Copy files to target machine 
-  become: true
-  become_user: jenkins
+- name: Copy files to target machine
   copy: src=/Softwares/Installers/mq_iib/ dest=/tools/IBM/ remote_src=yes
   delegate_to: "{{ targethost }}"
-  register: view
-  
-- debug: var=view  
-
 
