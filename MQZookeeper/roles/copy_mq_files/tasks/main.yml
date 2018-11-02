@@ -6,7 +6,7 @@
    files_matching: 'target_server_vars.yml'
 
 - name: Copy files to target machine
-  become_user: itumeleng
-  shell: scp /Softwares/Installers/mq_iib/tester.txt "{{ targethost }}":/tools/IBM/
+  #become_user: itumeleng
+  shell: scp /Softwares/Installers/mq_iib/tester.txt 'itumeleng@"{{ targethost }}":/tools/IBM/'
   #copy: src=/Softwares/Installers/mq_iib/* dst="{{ targethost }}":/tools/IBM/
 
