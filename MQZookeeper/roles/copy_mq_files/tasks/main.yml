@@ -6,8 +6,8 @@
    files_matching: 'target_server_vars.yml'
 
 - name: Copy files to target machine
-  #become_user: itumeleng
   #fetch: src=/Softwares/Installers/mq_iib/tester.txt dest=./files/#
-  shell: scp /Softwares/Installers/mq_iib/tester.txt '{{ target_id }}@{{ targethost }}':/tools/IBM/ remote_src=yes
-  #copy: src=/Softwares/Installers/mq_iib/* dst="{{ targethost }}":/tools/IBM/
+  when: invetory_hostname == "NB5CG8183YYM.metmom.mmih.biz"
+  shell: scp /Softwares/Installers/mq_iib/tester.txt '{{ target_id }}@{{ targethost }}':/tools/IBM/
+
 
