@@ -1,10 +1,5 @@
 ---
 
-- hosts: all
-  gather_facts: false
-  tasks:
-    - ping:
-
 - name: list DIR
   hosts: all
   tasks:
