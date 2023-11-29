@@ -4,3 +4,23 @@
   gather_facts: false
   tasks:
     - ping:
+
+- name: list DIR
+  hosts: all
+  tasks:
+    - name: output directories
+      ansible.builtin.command: df -h
+      register: command_output
+
+    - debug: msg="Status:{{ command_output.stdout }}" 
+
+
+
+- name: create dir
+  hosts: all
+  tasks:
+    - name: create directory
+      ansible.builtin.command: mkdir -p /opt/test1
+      register: command_output
+
+    - debug: msg="Status:{{ command_output.stdout }}" 
